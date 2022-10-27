@@ -2,6 +2,9 @@ import React from "react";
 import ListAdd from "./ListAdd";
 import ListView from "./ListView";
 
+import { ToastContainer, toast } from 'react-toastify';
+
+
 class TodoApp extends React.Component {
     state = {
         listJob: [
@@ -24,6 +27,7 @@ class TodoApp extends React.Component {
     deleteJob = (job) => {
         //console.log(this.state.listJob);
         console.log(`Xóa thành công: id-"${job.id}" content-"${job.content}"`);
+        toast.success('Xóa thành công');
         this.setState({
             listJob: this.state.listJob.filter(item => item.id !== job.id),
         })
@@ -35,6 +39,7 @@ class TodoApp extends React.Component {
         let curent = this.state.listJob;
         curent[job.id - 1].content = job.content;
         console.log(`Cập nhật thành công: id-"${job.id}" content-"${job.content}"`);
+        toast.success('Cập nhật thành công');
         this.setState({
             listJob: curent,
         })
@@ -43,6 +48,18 @@ class TodoApp extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
                 <ListAdd listJob={this.state.listJob} addJob={this.addJob} updateCheck={this.state.updateCheck} updateContent={this.state.updateContent} />
                 <ListView listJob={this.state.listJob} deleteJob={this.deleteJob} updateJob={this.updateJob} showUpdateForm={this.state.showUpdateForm} />
             </React.Fragment>

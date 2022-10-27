@@ -22,8 +22,8 @@ class ListAdd extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.content === '') {
-            toast.error('Chưa có giá trị');
+        if (!this.state.content) {
+            toast.error('Bạn chưa nhập giá trị!');
         }
         else {
             let job = {
@@ -32,7 +32,7 @@ class ListAdd extends React.Component {
             };
             console.log(`Thêm thành công: id-"${job.id}" title-"${job.title}" content-"${job.content}"`);
             this.props.addJob(job);
-            toast('Thêm Thành Công');
+            toast.success('Thêm Thành Công');
         }
     }
 
@@ -41,7 +41,6 @@ class ListAdd extends React.Component {
         //console.log(this.props);
         return (
             <React.Fragment>
-                <ToastContainer></ToastContainer>
                 <form>
                     <input id='ipContent' type='text' value={this.state.content} placeholder='Thêm Công Việc' onChange={(event) => this.handleOnchangeContent(event)} />
                     <span>

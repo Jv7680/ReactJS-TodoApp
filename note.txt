@@ -3,3 +3,21 @@ npm install sass
 
 #Cài toastify
 npm install --save react-toastify
+
+#Cài react router
+npm i react-router-dom
+Cơ bản cách dùng:
+_ <BrowserRouter></BrowserRouter>
+    +Bên trong component <Routes></Routes> là các component con <Route>.
+    +Bất cứ khi nào có một sự kiện link đến nơi khác diễn ra, nó sẽ được xử lý bởi các component
+con <Route> thay vì xử lý theo mặc định là chuyển đến trang link mới
+    + Các props của <Route> cơ bản gồm: path='link sẽ handle', element={component sẽ được render}, exact 
+    sẽ so sánh chính xác path với link
+    VD: <Route path='/home' exact element={<Home />} />
+
+_<NavLink></NavLink> có các prop
+    + to='đường dẫn của link'
+    + end : thêm vào nếu muốn so sánh chính xác đường link, nó thay cho exact ở phiên bản cũ
+    + activeclassname='tên class' dùng để cho thẻ a một tên class sau khi NavLink được click vào, mặc định nếu 
+    không set prop này thì sau khi render thẻ a đó sẽ thuộc class='active'
+    Điều này khá là hay khi ta có thể dùng css và thay đổi lại thẻ a đó thông qua tên class
