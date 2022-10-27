@@ -1,0 +1,5 @@
+#cài sass
+npm install sass
+
+#Cài toastify
+npm install --save react-toastify

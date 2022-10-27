@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -19,9 +19,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  //justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+#ipContent {
+  text-align: center;
+
+}
+
+#btnUpdate {
+  margin: 0 0 0 20px;
 }
 
 .App-link {
@@ -32,7 +41,14 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
 }
